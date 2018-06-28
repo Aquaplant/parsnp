@@ -679,14 +679,13 @@ if __name__ == "__main__":
                 fnafiles.append(file)
                 fnaf_sizes[file] = totlen#len(data)
             ff.close()
-    
+ 
+    if ref == "!":
+        fnafiles.remove(ref)
     
     if ref in fnafiles:
         sys.stderr.write( "ERROR: reference genome %s also in genome directory, restart and select different reference genome\n"%(ref))
         sys.exit(1)
-        
-    if ref == "!":
-        fnafiles.remove(ref)
 
     #sort reference by largest replicon to smallest
     if sortem and os.path.exists(ref) and not autopick_ref:
